@@ -5,10 +5,6 @@ import {useState} from 'react';
 
 
 function App() {
-  const sameMovies = [{title: "Insert title", year: '2001', id: 1}, {title: "Insert super long title", year: '2001', id: 0}]
-  const searchResults = [
-    
-  ]
   const [state, setState] = useState({nominations: [], isError: false, searchText: "", movies: []})
 
   const deleteMovie = (id) => {
