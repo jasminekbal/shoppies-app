@@ -5,7 +5,7 @@ import {useState} from 'react';
 
 
 function App() {
-  const [state, setState] = useState({nominations: [], isError: false, searchText: "", movies: []})
+  const [state, setState] = useState({nominations: [], isError: false, searchText: "", searchResults:"", movies: []})
 
   const deleteMovie = (id) => {
     const nominations = state.nominations.filter(movie => {return movie.id !== id})
@@ -29,7 +29,7 @@ function App() {
 
    async function searchMovie () {
     const title = state.searchText.split(' ').join('+');
-    const url = `http://www.omdbapi.com/?s=${title}&type=movie&page=4&apikey=c3847c11`
+    const url = `https://www.omdbapi.com/?s=${title}&type=movie&page=4&apikey=c3847c11`
     const response = await fetch(url)
     const data = await response.json();
     console.log(data)
