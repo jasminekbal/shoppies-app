@@ -1,11 +1,218 @@
 .App {
+  background-color: #031D44;
+  margin: 0;
+}
+
+.Landing {
+  min-height: 100vh;
+  overflow: auto;
+}
+
+.Title {
   text-align: center;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: bold;
+  font-size: 88px;
+  line-height: 88px;
+  color: #DB3A34;
+  margin-top: 150px;
+}
+
+.Subtitle {
+  font-family: 'Work Sans', sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 36px;
+  line-height: 42px;
+  text-align: center;
+  color: #D5896F;
+}
+
+.GetStartedWrapper {
+  display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: absolute;
+    bottom: 32px;
+    cursor: pointer;
+}
+
+.GetStartedRow {
+  display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.GetStarted {
+    text-align: center;
+    color: #D5896F;
+    font-family: 'Roboto', sans-serif;
+    font-size: 20px;
+    line-height: 23px;
+
+}
+
+.image {
+  height: 70px;
+  width: 70px;
+}
+
+.Heading {
+  font-family: 'Work Sans', sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 36px;
+  line-height: 42px;
+  color: #DB3A34;
+  margin-left: 72px;
+  margin-top: 72px;
+}
+
+.Wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.Alert {
+  background: #8EB7A2;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 4px;
+  width: 960px;
+}
+
+.AlertText {
+  font-family: 'Roboto', sans-serif;
+font-style: normal;
+font-weight: normal;
+font-size: 20px;
+line-height: 23px;
+text-align: center;
+
+color: #031D44;
+}
+
+
+#nominations {
+  background-color: #031D44;
+}
+
+.NominationsListWrapper {
+  margin-left: 240px;
+}
+
+.Nomination {
+  font-family: 'Roboto', sans-serif;
+font-size: 25px;
+line-height: 30px;
+margin-left: 180px;
+width: 700px;
+color: #D5896F;
+}
+
+.DeleteMovie {
+  left: 900px;
+  position: absolute;
+  cursor: pointer;
+}
+
+.SearchBar {
+  width: 350px;
+  height: 40px;
+  background-color: #FFF1E6;
+  font-size: 25px;
+  line-height: 30px;
+  color:  #031D44;
+}
+
+.Search {
+  width: 40px;
+  height: 46px;
+  background-color: #8EB7A2;
+  margin-left: 20px;
+}
+
+.SearchTitle {
+  font-family: 'Roboto', sans-serif;
+font-style: normal;
+font-weight: normal;
+font-size: 25px;
+line-height: 30px;
+color: #D5896F;
+margin-left: 180px;
+}
+
+.GridContainer {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  grid-row-gap: 30px;
+  margin-left: 30px;
+  margin-right: 30px;
+}
+
+.SearchResult {
+  background: #FFF1E6;
+  border: 3px solid #8EB7A2;
+  width: 275px;
+  height: 300px;
+  color: #031D44;
+}
+
+.MovieTitle {
+  font-family: 'Roboto', sans-serif;
+  font-size: 25px;
+  line-height: 25px;
+  text-align: center;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10 0 0 0;
+  height: 80px;
+}
+
+.MovieYear {
+  font-family: 'Roboto', sans-serif;
+  font-size: 25px;
+  line-height: 25px;
+  text-align: center;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10 0 0 0;
+}
+
+.MovieDescription {
+  font-family: 'Roboto', sans-serif;
+  font-style: italic;
+  font-size: 20px;
+  line-height: 20px;
+  text-align: center;
+  height: 90px;
+}
+
+.MovieButton {
+  background: #8EB7A2;
+  border-radius: 30px;
+  height: 40px;
+  width: 150px;
+  line-height: 40px;
+  text-align: center;
+}
+
+.Error {
+  font-size: 24px;
+  line-height: 42px;
+  color: #DB3A34;
+  text-align: center;
+}
+
+#browse {
+  min-height: 100vh;
 }
 
 .App-logo {
   height: 40vmin;
   pointer-events: none;
 }
+
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
