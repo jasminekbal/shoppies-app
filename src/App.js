@@ -134,13 +134,14 @@ function App() {
           <input type="text" className="SearchBar" placeholder="Enter Title" onChange={e=> setState({...state, searchText: e.target.value})}/>
           <div className="Search" onClick={e=>searchMovie()}><img alt="" className="SearchIcon" src={searchArrow}/></div>
       </div>
-
-      <h5 className="SearchTitle">
-        {state.movies.length ? `Showing Results for "${state.previousSearch}"` : 'Search Results will Appear Below'}
-      </h5>
       
-
-      {state.isError ? <div className="Wrapper"> <p className="Error">Oh no! Something happened, try searching a different title</p> </div> : state.movies.length &&
+      <div className="Wrapper">
+        <h5 className="SearchTitle">
+          {state.movies.length ? `Showing Results for "${state.previousSearch}"` : ''}
+        </h5>
+      </div>
+      
+      {state.isError ? <div className="Wrapper"> <p className="Error">Oh no! Something happened, Please try searching a different Title</p> </div> : state.movies.length &&
        <div className="Wrapper">
         <div className="SearchResultsContainer">
           {moviesRows}

@@ -114,7 +114,7 @@
 }
 
 .SearchBar {
-  width: 350px;
+  width: 50%;
   height: 38px;
   background-color: #FFF1E6;
   font-size: 25px;
@@ -145,17 +145,18 @@
   font-size: 25px;
   line-height: 30px;
   color: #D5896F;
-  margin-left: 80px;
+  width: 80%;
 }
 
 .SearchResultsContainer {
   background: #FFF1E6;
-  border: 3px solid #8EB7A2;
+  border: 5px solid #8EB7A2;
   width: 80%;
   padding-top: 8px;
   padding-bottom: 8px;
   color: #031D44;
   position: relative;
+  padding-left: 8px;
 }
 
 .MovieInfo {
