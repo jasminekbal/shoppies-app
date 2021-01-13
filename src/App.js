@@ -1,16 +1,26 @@
 import './App.css';
 import arrow from './res/arrow.svg'
+import awardsImg from './res/awardsImg.svg'
+import searchArrow from './res/searchArrow.svg'
 import {Link} from 'react-scroll'
 import {useState} from 'react';
 
+const LOCAL_STORAGE_KEY = 'NOMINATIONS';
 
 function App() {
-  const [state, setState] = useState({nominations: [], isError: false, searchText: "", searchResults:"", movies: []})
+  let nominationData = localStorage.getItem(LOCAL_STORAGE_KEY);
+
+  if (!nominationData) {
+    nominationData = []
+  }else {
+    nominationData = JSON.parse(nominationData)
+  }
+  
+  const [state, setState] = useState({nominations: nominationData, isError: false, searchText: "", previousSearch: "", searchResults:"", movies: []})
 
   const deleteMovie = (id) => {
     const nominations = state.nominations.filter(movie => {return movie.id !== id})
     setState({...state, nominations: nominations})
-    console.log(state.nominations)
   } 
 
   const getNominations = () => {
@@ -32,7 +42,6 @@ function App() {
     const url = `https://www.omdbapi.com/?s=${title}&type=movie&page=4&apikey=c3847c11`
     const response = await fetch(url)
     const data = await response.json();
-    console.log(data)
     if (data.Response ==="True") {
       const results = data.Search.map( result => {
         const movie = {
@@ -42,73 +51,63 @@ function App() {
         }
         return movie
       })
-      console.log(results)
-      setState({...state, isError: false, movies: results})
+      setState({...state, previousSearch: state.searchText, isError: false, movies: results})
     } else {
-      console.log("here")
-      setState({...state, isError: true})
+      setState({...state, previousSearch: state.searchText, isError: true})
     }
     
   }
 
   const addMovie = (id) => {
     const movie = state.movies.find(movie => {return movie.id === id})
-    console.log(state.nominations)
-
     state.nominations.push(movie)
     setState({...state, nominations: state.nominations})
+    localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(state.nominations))
   }
 
   const getMovies = () => {
-    console.log(state.movies)
     const cards = state.movies.map((movie, index) => {
       const isNominated = state.nominations.find(nomination => nomination.id === movie.id)
       const card = (
-        <div className="SearchResult" key={index}>
-          <h4 className="MovieTitle">{movie.title}</h4>
-          <h4 className="MovieYear"><em>({movie.year})</em></h4>
-          <div className="Wrapper">
-            <button className="MovieButton" disabled={isNominated} onClick={e=> addMovie(movie.id)}>
-              Nominate
-            </button>
-          </div>
-        </div>
+          <p key={index} className="MovieInfo">{movie.title} <em>({movie.year})</em>
+          <button className="MovieButton" disabled={isNominated} onClick={e=> addMovie(movie.id)}>
+              {isNominated ? <s>Nominate</s> : 'Nominate'}
+          </button>
+          </p>
       )
       return card
     })
-
     return cards
   }
   const nominationsRows = getNominations()
   const moviesRows = getMovies()
 
-  console.log(state)
-
   return (
    <div className="App"> 
     <div className="Landing">
       <h1 className="Title">THE SHOPPIES</h1>
-      <h3 className="Subtitle">Nominate your favourite flims for Shopify’s first ever Movie Awards</h3>
-      <div className="GetStartedRow">
-        <Link
+      <div className="Wrapper">
+        <h3 className="Subtitle">Nominate your favourite flims for Shopify’s first ever Movie Awards</h3>
+      </div>
+      
+      <div className="Wrapper">
+        <img alt="" src={awardsImg}/>
+      </div>
+      <Link
           to={"nominations"}
           spy={true}
           smooth={true}
           duration={1000}
           offset={-50}>
-          <div className="GetStartedWrapper">
-            <div className="GetStartedRow">
-            <p className="GetStarted">Let's Get Started</p>
-            </div>
-            <div>
-            <div className="GetStartedRow">
-              <img className="image" alt="" src={arrow}/>
-              </div>
-            </div>
-          </div>
-        </Link> 
-      </div>
+        <div className="Wrapper">
+          <p className="GetStarted">Let's Get Started</p>
+        </div>
+        <div className="Wrapper">
+          <img className="image" alt="" src={arrow}/>
+        </div>
+      </Link>
     </div>
+
     <div id="nominations">
       <h3 className="Heading">
         Your Nominations
@@ -118,10 +117,9 @@ function App() {
           <div className="Alert">
             <p className="AlertText"> Congrats! You've added 5 nominations. </p>
           </div>
-        </div>
-      }
+        </div>}
       
-        <ol>
+        <ol className="NominationsWrapper">
           {nominationsRows}
         </ol>
       
@@ -134,18 +132,19 @@ function App() {
       
       <div className="Wrapper">
           <input type="text" className="SearchBar" placeholder="Enter Title" onChange={e=> setState({...state, searchText: e.target.value})}/>
-          <div className="Search" onClick={e=>searchMovie()}></div>
+          <div className="Search" onClick={e=>searchMovie()}><img alt="" className="SearchIcon" src={searchArrow}/></div>
       </div>
 
       <h5 className="SearchTitle">
-        {state.movies.length ? `Showing Results for "${state.searchText}"` : 'Search Results will Appear Below'}
+        {state.movies.length ? `Showing Results for "${state.previousSearch}"` : 'Search Results will Appear Below'}
       </h5>
       
 
-      {state.isError ? <div className="Wrapper"> <p className="Error">Oh no! Something happened, try searching a different title</p> </div> :
-       <div className="GridContainer">
-         
-        {moviesRows}
+      {state.isError ? <div className="Wrapper"> <p className="Error">Oh no! Something happened, try searching a different title</p> </div> : state.movies.length &&
+       <div className="Wrapper">
+        <div className="SearchResultsContainer">
+          {moviesRows}
+        </div>
       </div>}
     </div>
   </div>

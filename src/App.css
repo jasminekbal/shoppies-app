@@ -15,7 +15,7 @@
   font-size: 88px;
   line-height: 88px;
   color: #DB3A34;
-  margin-top: 150px;
+  margin-top: 120px;
 }
 
 .Subtitle {
@@ -24,37 +24,36 @@
   font-weight: normal;
   font-size: 36px;
   line-height: 42px;
+  margin-top: 0;
+  width: 80%;
   text-align: center;
   color: #D5896F;
 }
 
-.GetStartedWrapper {
-  display: flex;
-    flex-direction: column;
-    justify-content: center;
-    position: absolute;
-    bottom: 32px;
-    cursor: pointer;
-}
-
 .GetStartedRow {
   display: flex;
-    flex-direction: row;
-    justify-content: center;
+  flex-direction: row;
+  justify-content: center;
 }
 
 .GetStarted {
-    text-align: center;
-    color: #D5896F;
-    font-family: 'Roboto', sans-serif;
-    font-size: 20px;
-    line-height: 23px;
+  text-align: center;
+  color: #D5896F;
+  font-family: 'Roboto', sans-serif;
+  font-size: 20px;
+  line-height: 23px;
+  position: absolute;
+  bottom: 92px;
+  cursor: pointer;
 
 }
 
 .image {
   height: 70px;
   width: 70px;
+  position: absolute;
+  bottom: 32px;
+  cursor: pointer;
 }
 
 .Heading {
@@ -69,132 +68,118 @@
 }
 
 .Wrapper {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
 }
 
 .Alert {
   background: #8EB7A2;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 4px;
-  width: 960px;
+  width: 80%;
 }
 
 .AlertText {
   font-family: 'Roboto', sans-serif;
-font-style: normal;
-font-weight: normal;
-font-size: 20px;
-line-height: 23px;
-text-align: center;
-
-color: #031D44;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 20px;
+  line-height: 23px;
+  text-align: center;
+  color: #031D44;
 }
-
 
 #nominations {
   background-color: #031D44;
 }
 
-.NominationsListWrapper {
-  margin-left: 240px;
-}
-
 .Nomination {
   font-family: 'Roboto', sans-serif;
-font-size: 25px;
-line-height: 30px;
-margin-left: 180px;
-width: 700px;
-color: #D5896F;
+  font-size: 25px;
+  line-height: 30px;
+  margin-left: 180px;
+  color: #D5896F;
+}
+
+.NominationsWrapper {
+  position: relative;
+  width: 80%;
 }
 
 .DeleteMovie {
-  left: 900px;
+  right: 20px;
   position: absolute;
   cursor: pointer;
 }
 
 .SearchBar {
   width: 350px;
-  height: 40px;
+  height: 38px;
   background-color: #FFF1E6;
   font-size: 25px;
   line-height: 30px;
   color:  #031D44;
+  border-width: 0px;
 }
 
 .Search {
   width: 40px;
-  height: 46px;
+  height: 40px;
   background-color: #8EB7A2;
   margin-left: 20px;
+  border-radius: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center
+}
+
+.SearchIcon {
+  margin-left: 5px;
 }
 
 .SearchTitle {
   font-family: 'Roboto', sans-serif;
-font-style: normal;
-font-weight: normal;
-font-size: 25px;
-line-height: 30px;
-color: #D5896F;
-margin-left: 180px;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 25px;
+  line-height: 30px;
+  color: #D5896F;
+  margin-left: 80px;
 }
 
-.GridContainer {
-  display: grid;
-  grid-template-columns: auto auto auto;
-  grid-row-gap: 30px;
-  margin-left: 30px;
-  margin-right: 30px;
-}
-
-.SearchResult {
+.SearchResultsContainer {
   background: #FFF1E6;
   border: 3px solid #8EB7A2;
-  width: 275px;
-  height: 300px;
+  width: 80%;
+  padding-top: 8px;
+  padding-bottom: 8px;
   color: #031D44;
+  position: relative;
 }
 
-.MovieTitle {
+.MovieInfo {
   font-family: 'Roboto', sans-serif;
   font-size: 25px;
   line-height: 25px;
-  text-align: center;
   padding-left: 5px;
   padding-right: 5px;
-  margin: 10 0 0 0;
-  height: 80px;
-}
-
-.MovieYear {
-  font-family: 'Roboto', sans-serif;
-  font-size: 25px;
-  line-height: 25px;
-  text-align: center;
-  padding-left: 5px;
-  padding-right: 5px;
-  margin: 10 0 0 0;
-}
-
-.MovieDescription {
-  font-family: 'Roboto', sans-serif;
-  font-style: italic;
-  font-size: 20px;
-  line-height: 20px;
-  text-align: center;
-  height: 90px;
+  width: 80%;
 }
 
 .MovieButton {
   background: #8EB7A2;
   border-radius: 30px;
   height: 40px;
-  width: 150px;
+  width: 130px;
   line-height: 40px;
   text-align: center;
+  font-size: 20px;
+  line-height: 23px;
+  color: #031D44;
+  right: 10px;
+  position: absolute;
+  cursor: pointer;
 }
 
 .Error {
@@ -206,40 +191,4 @@ margin-left: 180px;
 
 #browse {
   min-height: 100vh;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
 }
