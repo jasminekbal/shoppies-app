@@ -121,6 +121,9 @@ function App() {
 
   return (
    <div className="App"> 
+    <div className="Wrapper">
+          <a className="GithubLink" target="_blank" href="https://github.com/jasminekbal/shoppies-app">&lt;Link to Github&gt;</a>
+    </div>
     <div className="Landing">
       <h1 className="Title">THE SHOPPIES</h1>
       <div className="Wrapper">

@@ -30,12 +30,6 @@
   color: #D5896F;
 }
 
-.GetStartedRow {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-}
-
 .GetStarted {
   text-align: center;
   color: #D5896F;
@@ -45,7 +39,6 @@
   position: absolute;
   bottom: 92px;
   cursor: pointer;
-
 }
 
 .image {
@@ -54,6 +47,12 @@
   position: absolute;
   bottom: 32px;
   cursor: pointer;
+}
+
+.GithubLink{
+  position: fixed;
+  bottom: 10px;
+  color: #D5896F;
 }
 
 .Heading {
