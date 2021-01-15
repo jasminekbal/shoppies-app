@@ -21,7 +21,8 @@ function App() {
   
   const [state, setState] = useState({nominations: nominationData,
     isError: false, searchText: "", previousSearch: "",
-    deleteHover: false, deleteId: undefined,
+    showMovieInfo: false, movieInfo: null, movieId: null,
+    deleteHover: false, deleteId: null,
     searchResults:"", movies: []})
 
   const deleteMovie = (id) => {
@@ -84,7 +85,8 @@ function App() {
     const response = await fetch(url)
     const data = await response.json();
     if (data.Response ==="True") {
-      setState({...state, showMovieInfo: true, movieId: data.imdbID, movieInfo: {plot: data.Plot, actors: data.Actors, rating: data.imdbRating}})
+      setState({...state, showMovieInfo: true, movieId: data.imdbID, 
+                movieInfo: {plot: data.Plot, actors: data.Actors, rating: data.imdbRating}})
     }
   }
   
@@ -147,7 +149,7 @@ function App() {
       <h3 className="Heading">
         Your Nominations
       </h3>
-      
+
       {state.nominations.length === 5 && 
         <div className="Wrapper">
           <div className="Alert">
@@ -160,7 +162,7 @@ function App() {
            {nominationsRows}
         </ol> :
         <div className="NoNominationsText"> 
-          Oh no, looks like you haven't nominated any movies yet :( you can browse and nominate your favourites below!
+          Oh no, looks like you haven't nominated any movies yet. You can browse and nominate your favourites below!
         </div>}
     </div>
 
