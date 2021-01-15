@@ -113,6 +113,15 @@
   cursor: pointer;
 }
 
+.NoNominationsText{
+  color: #D5896F;
+  text-align: center;
+  margin: auto;
+  width: 80%;
+  font-size: 20px;
+  line-height: 32px;
+}
+
 .SearchBar {
   width: 50%;
   height: 38px;
@@ -123,7 +132,7 @@
   border-width: 0px;
 }
 
-.Search {
+.SearchButton {
   width: 40px;
   height: 40px;
   background-color: #8EB7A2;
@@ -131,7 +140,8 @@
   border-radius: 30px;
   display: flex;
   align-items: center;
-  justify-content: center
+  justify-content: center;
+  cursor: pointer;
 }
 
 .SearchIcon {
@@ -157,15 +167,16 @@
   color: #031D44;
   position: relative;
   padding-left: 8px;
+  font-family: 'Roboto', sans-serif;
 }
 
 .MovieInfo {
-  font-family: 'Roboto', sans-serif;
   font-size: 25px;
-  line-height: 25px;
+  line-height: 40px;
   padding-left: 5px;
   padding-right: 5px;
   width: 80%;
+  margin: 16px 0 0 0;
 }
 
 .MovieButton {
@@ -184,10 +195,17 @@
 }
 
 .Error {
-  font-size: 24px;
-  line-height: 42px;
+  font-size: 20px;
+  line-height: 32px;
   color: #DB3A34;
   text-align: center;
+  width: 80%;
+}
+
+.MovieDescription {
+  margin-left: 5%;
+  padding-right: 15%;
+  padding-top: 10px;
 }
 
 #browse {
