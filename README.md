@@ -8,4 +8,4 @@ This is a simple webpage that allows users to browse movies and nominate their f
 
 ## Something to consider
 
-I am an aspiring Front-End developer that wants to grow into a well rounded T-Shaped software engineer and for that I've been dabbling in design as well. So, I designed this webpage on [https://www.figma.com/file/L1Q8Q3hJRIDuQRJDZvPuvn/Shopify?node-id=0%3A1](Figma) prior to coding it.
+I am an aspiring Front-End developer that wants to grow into a well rounded T-Shaped software engineer and for that I've been dabbling in design as well. So, I designed this webpage on [Figma](https://www.figma.com/file/L1Q8Q3hJRIDuQRJDZvPuvn/Shopify?node-id=0%3A1) prior to coding it.
